@@ -1,6 +1,9 @@
+import time
+import allure
 from base.base_page import BasePage
 from config.links import Links
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
 
 
 class PersonalPage(BasePage):
@@ -11,16 +14,20 @@ class PersonalPage(BasePage):
     SAVE_BUTTON = ("xpath", "//button[@type='submit'][1]")
 
     def change_name(self, new_name):
+        with allure.step("Change name on {new_name}"):
+            input_firstname_field = self.wait.until(
+                EC.element_to_be_clickable((self.FIRSTNAME_FIELD))
+                )
+            time.sleep(3)
+            input_firstname_field.send_keys(Keys.LEFT_CONTROL + "A")
+            input_firstname_field.send_keys(Keys.BACKSPACE)
+            time.sleep(3)
+            assert input_firstname_field.get_attribute('value') == "", 'Очисти поле'
+            input_firstname_field.send_keys(new_name)
 
-        input_firstname_field = self.wait.until(
-            EC.element_to_be_clickable((self.FIRSTNAME_FIELD))
-            )
-        input_firstname_field.clear()
-        assert input_firstname_field.get_attribute('value') == "", 'Текст не удален'
-        input_firstname_field.send_keys(self.new_name)
-
+    @allure.step("Save changes")
     def save_change(self):
 
         self.wait.until(
-            EC.element_to_be_clickable((self.SAVE_BUTTON_BUTTON))
+            EC.element_to_be_clickable((self.SAVE_BUTTON))
             ).click()

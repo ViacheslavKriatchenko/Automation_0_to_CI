@@ -1,3 +1,4 @@
+import allure
 from base.base_page import BasePage
 from config.links import Links
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,6 +10,7 @@ class DashbordPage(BasePage):
 
     info_button = ("xpath", "//span[text()='My Info']")
 
+    @allure.step("Click on 'Info' page")
     def click_info_button(self):
 
         self.wait.until(
