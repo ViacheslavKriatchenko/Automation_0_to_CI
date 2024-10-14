@@ -1,4 +1,4 @@
-"# Automation_0_to_CI" 
+"# Automation_0_to_CI"  
 [ПОСТРОЕНИЕ ПРОЦЕССА АВТОМАТИЗАЦИИ ТЕСТИРОВАНИЯ С 0 ДО CI/CD ЗА 1.5 ЧАСА НА PYTHON. Aleksei Koledachkin](https://www.youtube.com/watch?v=qqGxKDOR2DY&list=PLN2EyQPKD10tKl9I2WtupWPixDwgbxhWt&index=3)
 - [] Создать проект локально
 - [] Создать репозиторий
